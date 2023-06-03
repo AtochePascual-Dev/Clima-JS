@@ -80,13 +80,27 @@ const mostrarClima = (datos) => {
   const temperaturaMax = convertirCentigrados(temp);
   const temperaturaMin = convertirCentigrados(temp);
   const tenperaturaHtml = document.createElement('p');
+  const resultadoDiv = document.createElement('div');
 
   tenperaturaHtml.innerHTML = `${temperatura} &#8451;`;
   tenperaturaHtml.classList.add('font-bold', 'text-6xl');
 
+  resultadoDiv.classList.add('text-center', 'text-white');
+  resultadoDiv.appendChild(tenperaturaHtml);
+
+  resultado.appendChild(resultadoDiv);
 };
 
 
 
 // * Convierte a grados centigrados
-const convertirCentigrados = (temperatura) => (temp - 273.15).toFixed(2)
+const convertirCentigrados = (temperatura) => (temperatura - 273.15).toFixed(2);
+
+
+
+// * Limpia el html previo
+const limpiarHtml = () => {
+  while (resultado.firstChild) {
+    resultado.firstChild.remove();
+  }
+};
