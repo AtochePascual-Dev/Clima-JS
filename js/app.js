@@ -24,7 +24,27 @@ const buscarClima = (event) => {
 
   // validamos si la infomacion contiene vacio
   if ([ciudad, pais].includes('')) {
-
+    mostrarAlerta('Todos los campos son obligatorios')
   }
 
+};
+
+
+
+// * Muestra un mensaje en pantalla
+const mostrarAlerta = (mensaje) => {
+  const existeAlerta = document.querySelector('.alerta');
+
+  if (!existeAlerta) {
+    const alerta = document.createElement('div');
+    alerta.textContent = mensaje;
+    alerta.className = "bg-red-100 border-red-400 text-red-700 px-4 py-3 rounder max-w-md mx-auto mt-6 text-center font-bold alerta";
+
+    container.appendChild(alerta);
+
+    // eliminamos la alerta
+    setTimeout(() => {
+      alerta.remove();
+    }, 2000);
+  }
 };
