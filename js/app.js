@@ -66,5 +66,17 @@ const consultarApi = (ciudad, pais) => {
         mostrarAlerta('Ciudad no encontrada');
         return;
       }
+
+      mostrarClima(datos);
     })
+};
+
+
+
+// * Muestr el clima en pantalla
+const mostrarClima = (datos) => {
+  const { main: { temp, temp_max, temp_min } } = datos;
+  const tenperaturaHtml = document.createElement('p');
+  const centigrados = (temp - 273.15).toFixed(2);
+
 };
