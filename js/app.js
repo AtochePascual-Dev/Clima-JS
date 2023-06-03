@@ -68,6 +68,7 @@ const consultarApi = (ciudad, pais) => {
 
       if (datos.cod === '404') {
         mostrarAlerta('Ciudad no encontrada');
+        formulario.reset();
         return;
       }
 
