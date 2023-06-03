@@ -76,7 +76,17 @@ const consultarApi = (ciudad, pais) => {
 // * Muestr el clima en pantalla
 const mostrarClima = (datos) => {
   const { main: { temp, temp_max, temp_min } } = datos;
+  const temperatura = convertirCentigrados(temp);
+  const temperaturaMax = convertirCentigrados(temp);
+  const temperaturaMin = convertirCentigrados(temp);
   const tenperaturaHtml = document.createElement('p');
-  const centigrados = (temp - 273.15).toFixed(2);
+
+  tenperaturaHtml.innerHTML = `${temperatura} &#8451;`;
+  tenperaturaHtml.classList.add('font-bold', 'text-6xl');
 
 };
+
+
+
+// * Convierte a grados centigrados
+const convertirCentigrados = (temperatura) => (temp - 273.15).toFixed(2)
